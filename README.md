@@ -1,8 +1,28 @@
-# Bank Queue Management System (Java)
+# Bank Queue Management System
 
-A simple console-based banking queue application built in Java to demonstrate the **Queue** data structure and the **FIFO (First In, First Out)** principle.
+A school project demonstrating the **Queue** data structure and the **FIFO (First In, First Out)** principle in a banking scenario.
 
-## Features
+## 🌐 Visual interface
+
+This repository now includes a browser-based interface in [`index.html`](./index.html), with a dashboard, customer registration, ticket numbers, a live waiting line, and a **Serve next customer** button.
+
+> **Important:** GitHub's code page shows source files; it does not automatically run a Java console program or display a website preview. To publish the visual interface, enable GitHub Pages as described below.
+
+### Publish the interface with GitHub Pages
+
+1. Open this repository on GitHub and select **Settings**.
+2. In the sidebar, select **Pages**.
+3. Under **Build and deployment**, choose **Deploy from a branch**.
+4. Select branch **main** and folder **/(root)**, then click **Save**.
+5. Wait a few minutes, then open the published link shown on the Pages settings screen. GitHub notes publishing can take up to 10 minutes.
+
+Official guide: [Configure a GitHub Pages publishing source](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
+
+## ☕ Java console application
+
+The Java source is in [`Main.java`](./Main.java). It runs in a terminal and demonstrates a queue using Java's `Queue` interface and `LinkedList`.
+
+### Features
 
 1. **Add customer** — adds a customer to the back of the queue (enqueue).
 2. **Serve next customer** — serves and removes the customer at the front (dequeue).
@@ -10,46 +30,27 @@ A simple console-based banking queue application built in Java to demonstrate th
 4. **Count waiting customers** — shows how many customers are waiting.
 5. **Exit** — closes the program.
 
-The program handles an empty queue and rejects blank customer names.
+### Run the Java program
 
-## Requirements
+Requirements: JDK 8 or later.
 
-- Java Development Kit (JDK) 8 or later
-- A terminal or command prompt
+```bash
+javac Main.java
+java Main
+```
 
-## How to run
+## Queue concept
 
-1. Clone or download this repository.
-2. Open a terminal in the project folder.
-3. Compile the program:
-
-   ```bash
-   javac Main.java
-   ```
-
-4. Run it:
-
-   ```bash
-   java Main
-   ```
-
-## Example
-
-If Ama, Kofi, and Kwame join in that order, the queue is:
+If Ama, Kofi, and Kwame join in that order, Ama is served first:
 
 ```text
 Front -> Ama -> Kofi -> Kwame <- Back
 ```
 
-When the teller serves the next customer, **Ama** is served first and removed from the queue.
-
-## Queue operations used
-
-- `offer(name)`: adds a customer to the back of the queue.
-- `poll()`: removes and returns the customer at the front, or returns `null` if the queue is empty.
-- `isEmpty()`: checks whether the queue contains any customers.
-- `size()`: returns the number of waiting customers.
+The Java program uses `offer(name)` to enqueue customers, `poll()` to serve the next customer, `isEmpty()` to check the queue, and `size()` to count waiting customers.
 
 ## Learning objective
 
-This project shows how a queue can be used in a real-life banking situation to ensure customers are served in the order they arrive.
+Show how a real-life bank can serve customers in the order they arrive by applying the FIFO queue data structure.
+
+**Note:** The web interface is a front-end demo; its queue data stays in the browser session. The Java console program is a separate implementation.
